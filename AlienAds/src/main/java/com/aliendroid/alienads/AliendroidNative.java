@@ -28,7 +28,7 @@ public class AliendroidNative {
 
     private static NativeAd nativeAd;
 
-    public static void SmallNativeAdmob(Activity activity, String selectAds, String selectAdsBackup, FrameLayout layNative, String nativeId, String idBannerBackup, String Hpk1,
+    public static void SmallNativeAdmob(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
                                         String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 
         AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
@@ -80,8 +80,8 @@ public class AliendroidNative {
         adLoader.loadAd(request);
 
     }
-    public static void SmallNativeAdmobWhite(Activity activity, String selectAds, String selectAdsBackup, FrameLayout layNative, String nativeId, String idBannerBackup, String Hpk1,
-                                        String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+    public static void SmallNativeAdmobWhite(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
+                                             String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 
         AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
         builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
@@ -133,8 +133,8 @@ public class AliendroidNative {
 
     }
 
-    public static void SmallNativeAdmobNonStroke(Activity activity, String selectAds, String selectAdsBackup, FrameLayout layNative, String nativeId, String idBannerBackup, String Hpk1,
-                                             String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+    public static void SmallNativeAdmobNonStroke(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
+                                                 String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 
         AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
         builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
@@ -236,7 +236,7 @@ public class AliendroidNative {
         adLoader.loadAd(adRequest);
     }
 
-    public static void MediumNative(Activity activity, String selectAds, String selectAdsBackup, FrameLayout layNative, String nativeId, String idBannerBackup, String Hpk1,
+    public static void MediumNative(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
                                     String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 
         AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
@@ -290,8 +290,8 @@ public class AliendroidNative {
 
     }
 
-    public static void MediumNativeNonStroke(Activity activity, String selectAds, String selectAdsBackup, FrameLayout layNative, String nativeId, String idBannerBackup, String Hpk1,
-                                    String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+    public static void MediumNativeNonStroke(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
+                                             String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 
         AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
         builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
@@ -344,8 +344,8 @@ public class AliendroidNative {
 
     }
 
-    public static void MediumNativeWhite(Activity activity, String selectAds, String selectAdsBackup, FrameLayout layNative, String nativeId, String idBannerBackup, String Hpk1,
-                                             String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+    public static void MediumNativeWhite(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
+                                         String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 
         AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
         builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
