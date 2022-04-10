@@ -80,6 +80,58 @@ public class AliendroidNative {
         adLoader.loadAd(request);
 
     }
+    public static void SmallNativeAdmobRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
+                                        String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+
+        AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
+        builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+            @Override
+            public void onNativeAdLoaded(@NonNull NativeAd nativeAds) {
+
+                if (nativeAd != null) {
+                    nativeAd.destroy();
+                }
+
+                nativeAd = nativeAds;
+                NativeAdView adView = (NativeAdView) activity.getLayoutInflater()
+                        .inflate(R.layout.admob_small_native, null);
+                populateNativeAdView(nativeAds, adView);
+                layNative.removeAllViews();
+                layNative.addView(adView);
+            }
+
+        });
+
+        VideoOptions videoOptions = new VideoOptions.Builder()
+                .build();
+
+        NativeAdOptions adOptions = new NativeAdOptions.Builder()
+                .setVideoOptions(videoOptions)
+                .build();
+
+        builder.withNativeAdOptions(adOptions);
+
+
+        Bundle extras = new FacebookExtras()
+                .setNativeBanner(true)
+                .build();
+        AdRequest request = new AdRequest.Builder().addKeyword(Hpk1).addKeyword(Hpk2)
+                .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
+                .addNetworkExtrasBundle(FacebookAdapter.class, extras)
+                .build();
+        AdLoader adLoader =
+                builder
+                        .withAdListener(
+                                new AdListener() {
+                                    @Override
+                                    public void onAdFailedToLoad(LoadAdError loadAdError) {
+
+                                    }
+                                })
+                        .build();
+        adLoader.loadAd(request);
+
+    }
     public static void SmallNativeAdmobWhite(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
                                              String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
 

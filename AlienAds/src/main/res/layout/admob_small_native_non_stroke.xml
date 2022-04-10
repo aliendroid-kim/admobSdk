@@ -16,12 +16,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="24dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="2dp"
                 android:background="@drawable/round_black"
                 android:gravity="center"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
                 android:text="Ads"
                 android:textColor="@color/native_text_button"
                 android:textSize="10sp" />
