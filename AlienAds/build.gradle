@@ -38,7 +38,7 @@ dependencies {
     //implementation 'com.google.android.gms:play-services-ads-lite:20.5.0'
     //Mediation SDK
     implementation 'com.google.android.ump:user-messaging-platform:2.0.0'
-    implementation 'com.google.ads.mediation:facebook:6.8.0.0'
+    implementation 'com.google.ads.mediation:facebook:6.10.0.0'
 
     implementation 'com.flurry.android:analytics:13.0.1'
 
