@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00a8ff</item>
+        <item name="colorPrimaryDark">#00a8ff</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    
+    <style name="AppSaa" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#2d3436</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">#ffffff</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <string name="ad_attribution">Ads</string>
+</resources>
