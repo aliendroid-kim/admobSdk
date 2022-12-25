@@ -28,8 +28,6 @@ import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialFa
 import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialGoogle;
 import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialIronSource;
 import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialStartApp;
-import com.google.ads.mediation.facebook.FacebookAdapter;
-import com.google.ads.mediation.facebook.FacebookExtras;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -79,12 +77,8 @@ public class AliendroidIntertitial {
 
     public static void LoadIntertitialAdmob(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup, String Hpk1,
                                             String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
-        Bundle extras = new FacebookExtras()
-                .setNativeBanner(true)
-                .build();
         AdRequest request = new AdRequest.Builder().addKeyword(Hpk1).addKeyword(Hpk2)
                 .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
-                .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                 .build();
 
         InterstitialAd.load(activity,idIntertitial, request,

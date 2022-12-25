@@ -2,12 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="75dp"
     android:background="@color/native_background">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:layout_gravity="center"
         android:orientation="vertical">
 
@@ -28,7 +28,8 @@
                     android:gravity="center"
                     android:text="Ads"
                     android:textColor="#ffffff"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <TextView
                     android:id="@+id/ad_advertiser"
@@ -46,12 +47,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RelativeLayout
                     android:layout_width="50dp"
-                    android:layout_height="50dp">
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/ad_app_icon"
@@ -81,9 +82,7 @@
                             android:id="@+id/ad_headline"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
                             android:lines="1"
-                            android:text="Reskin Aliendroid"
                             android:textColor="@color/native_title"
                             android:textSize="10sp" />
 
@@ -94,9 +93,8 @@
                             android:layout_marginEnd="20dp"
                             android:layout_marginRight="5dp"
                             android:layout_marginBottom="5dp"
-                            android:text="1st - The Big Marketplace Source Code for Monetize Mobile Application on Indonesia"
                             android:textColor="@color/native_description"
-                            android:textSize="10sp" />
+                            android:textSize="9dp" />
 
                         <RatingBar
                             android:id="@+id/ad_stars"
@@ -120,6 +118,7 @@
                         android:gravity="center"
                         android:textColor="@color/native_text_button"
                         android:textSize="8sp"
+                        tools:ignore="TouchTargetSizeCheck"
                         tools:text="Install" />
                 </LinearLayout>
 

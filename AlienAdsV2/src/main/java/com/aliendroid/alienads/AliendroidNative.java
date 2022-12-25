@@ -36,8 +36,6 @@ import com.facebook.ads.AdOptionsView;
 import com.facebook.ads.NativeAdLayout;
 import com.facebook.ads.NativeAdListener;
 import com.facebook.ads.NativeBannerAd;
-import com.google.ads.mediation.facebook.FacebookAdapter;
-import com.google.ads.mediation.facebook.FacebookExtras;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
@@ -95,12 +93,9 @@ public class AliendroidNative {
                 .setVideoOptions(videoOptions)
                 .build();
         builder.withNativeAdOptions(adOptions);
-        Bundle extras = new FacebookExtras()
-                .setNativeBanner(true)
-                .build();
+
         AdRequest request = new AdRequest.Builder().addKeyword(Hpk1).addKeyword(Hpk2)
                 .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
-                .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                 .build();
         AdLoader adLoader =
                 builder
@@ -168,13 +163,8 @@ public class AliendroidNative {
 
         builder.withNativeAdOptions(adOptions);
 
-
-        Bundle extras = new FacebookExtras()
-                .setNativeBanner(true)
-                .build();
         AdRequest request = new AdRequest.Builder().addKeyword(Hpk1).addKeyword(Hpk2)
                 .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
-                .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                 .build();
         AdLoader adLoader =
                 builder
@@ -207,6 +197,74 @@ public class AliendroidNative {
     public static void SmallNativeAlien(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
 
     }
+
+    public static void SmallNativeAdmobRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup, String Hpk1,
+                                                 String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+
+        AdLoader.Builder builder = new AdLoader.Builder(activity, nativeId);
+        builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+            @Override
+            public void onNativeAdLoaded(@NonNull NativeAd nativeAds) {
+                if (onLoadMediumNativesAdmob!=null){
+                    onLoadMediumNativesAdmob.onNativeAdLoaded();
+                }
+                if (nativeAd != null) {
+                    nativeAd.destroy();
+                }
+                nativeAd = nativeAds;
+                NativeAdView adView = (NativeAdView) activity.getLayoutInflater()
+                        .inflate(R.layout.admob_small_rectangle_native, null);
+                populateNativeAdView(nativeAds, adView);
+                layNative.removeAllViews();
+                layNative.addView(adView);
+            }
+
+
+        });
+
+        VideoOptions videoOptions = new VideoOptions.Builder()
+                .build();
+
+        NativeAdOptions adOptions = new NativeAdOptions.Builder()
+                .setVideoOptions(videoOptions)
+                .build();
+
+        builder.withNativeAdOptions(adOptions);
+
+        AdRequest request = new AdRequest.Builder().addKeyword(Hpk1).addKeyword(Hpk2)
+                .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
+                .build();
+        AdLoader adLoader =
+                builder
+                        .withAdListener(
+                                new AdListener() {
+                                    @Override
+                                    public void onAdFailedToLoad(LoadAdError loadAdError) {
+                                        if (onLoadMediumNativesAdmob!=null){
+                                            onLoadMediumNativesAdmob.onAdFailedToLoad("");
+                                        }
+
+                                    }
+                                })
+                        .build();
+        adLoader.loadAd(request);
+    }
+
+    public static void SmallNativeMaxRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
+
+
+
+    }
+
+    public static void SmallNativeFanRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
+    }
+
+
+    public static void SmallNativeAlienRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
+
+    }
+
+
 
     private static void populateNativeAdView(NativeAd nativeAd, NativeAdView adView) {
         adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));

@@ -25,8 +25,7 @@ import com.aliendroid.sdkads.interfaces.OnShowRewardsView;
 import com.aliendroid.sdkads.type.mediation.AlienMediationAds;
 import com.aliendroid.sdkads.type.view.AlienViewAds;
 
-import com.google.ads.mediation.facebook.FacebookAdapter;
-import com.google.ads.mediation.facebook.FacebookExtras;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.OnUserEarnedRewardListener;
@@ -60,11 +59,7 @@ public class AliendroidReward {
     public static boolean SHOW_ALIEN_VIEW=false;
     public static void LoadRewardAdmob(Activity activity, String selectBackupAds, String idReward, String idBackupReward) {
         try {
-            Bundle extras = new FacebookExtras()
-                    .setNativeBanner(true)
-                    .build();
             AdRequest adRequest = new AdRequest.Builder()
-                    .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                     .build();
             RewardedAd.load(activity, idReward,
                     adRequest, new RewardedAdLoadCallback() {

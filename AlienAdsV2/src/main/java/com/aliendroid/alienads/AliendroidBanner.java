@@ -24,8 +24,6 @@ import com.aliendroid.sdkads.type.mediation.AlienMediationAds;
 import com.aliendroid.sdkads.type.view.AlienViewAds;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
-import com.google.ads.mediation.facebook.FacebookAdapter;
-import com.google.ads.mediation.facebook.FacebookExtras;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -48,12 +46,9 @@ public class AliendroidBanner {
 
     public static void SmallBannerAdmob(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup, String Hpk1,
                                         String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
-        Bundle extras = new FacebookExtras()
-                .setNativeBanner(true)
-                .build();
+
         AdRequest request = new AdRequest.Builder().addKeyword(Hpk1).addKeyword(Hpk2)
                 .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
-                .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                 .build();
         adViewAdmob = new AdView(activity);
         adViewAdmob.setAdUnitId(idBanner);
