@@ -9,7 +9,7 @@ Alien Single SDK Ads Admob, adalah libs tambahan untuk mengganti iklan Alien Mul
 
  <b>C. Cara Pasang </b>
 
-Ganti <b>implementation 'com.github.aliendroid-kim:AlienMultyAds:Neptunus-21'</b> atau versi di atas 19 yang ada di Gradle Module, 
+Ganti <b>implementation 'com.github.aliendroid-kim:AlienMultyAds:Neptunus-19'</b> atau versi di atas 19 yang ada di Gradle Module, 
 dengan <b>implementation 'com.github.aliendroid-kim:admobSdk:Sun-17'</b>
 
  
