@@ -264,6 +264,11 @@ public class AliendroidNative {
 
     }
 
+    //Rectangle
+    public static void SmallNativeStartAppRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
+
+    }
+
 
 
     private static void populateNativeAdView(NativeAd nativeAd, NativeAdView adView) {
