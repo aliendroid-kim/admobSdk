@@ -28,6 +28,9 @@ import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialFa
 import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialGoogle;
 import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialIronSource;
 import com.aliendroid.alienads.interfaces.interstitial.show.OnShowInterstitialStartApp;
+import com.aliendroid.sdkads.interfaces.OnLoadInterstitialView;
+import com.aliendroid.sdkads.type.mediation.AlienMediationAds;
+import com.aliendroid.sdkads.type.view.AlienViewAds;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -208,6 +211,10 @@ public class AliendroidIntertitial {
         }
     }
 
+    public static void LoadIntertitialWortise(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup) {
+
+    }
+
     public static void ShowIntertitialGoogleAds(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup,
                                                 int interval) {
     }
@@ -256,5 +263,9 @@ public class AliendroidIntertitial {
 
     public static void ShowIntertitialAlienMediation(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup,
                                                      int interval) {
+    }
+    public static void ShowIntertitialWortise(Activity activity, String selectAdsBackup, String idIntertitial, String idIntertitialBackup,
+                                              int interval) {
+
     }
 }

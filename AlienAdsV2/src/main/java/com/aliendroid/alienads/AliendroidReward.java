@@ -1,7 +1,10 @@
 package com.aliendroid.alienads;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -174,6 +177,18 @@ public class AliendroidReward {
     }
 
     public static void ShowRewardAlienMediation(Activity activity, String selecBackuptAds, String idReward, String idBackupReward) {
+
+    }
+    public static void LoadRewardFan(Activity activity, String selectBackupAds, String idReward, String idBackupReward) {
+
+    }
+    public static void LoadRewardWortise(Activity activity, String selectBackupAds, String idReward, String idBackupReward) {
+
+    }
+    public static void ShowRewardFan(Activity activity, String selecBackuptAds, String idReward, String idBackupReward) {
+
+    }
+    public static void ShowRewardWortise(Activity activity, String selecBackuptAds, String idReward, String idBackupReward) {
 
     }
 }

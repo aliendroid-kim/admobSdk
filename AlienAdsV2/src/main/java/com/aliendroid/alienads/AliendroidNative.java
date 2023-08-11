@@ -269,7 +269,17 @@ public class AliendroidNative {
 
     }
 
+    public static void SmallNativeWortise(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup
+    ) {
 
+    }
+    public static void MediumNativeWortise(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
+
+    }
+
+    public static void SmallNativeWortiseRectangle(Activity activity, RelativeLayout layNative, String selectAdsBackup, String nativeId, String idNativeBackup) {
+
+    }
 
     private static void populateNativeAdView(NativeAd nativeAd, NativeAdView adView) {
         adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));

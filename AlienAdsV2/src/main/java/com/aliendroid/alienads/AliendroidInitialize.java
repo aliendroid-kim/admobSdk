@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.util.Log;
 
 
+import com.aliendroid.sdkads.config.AppPromote;
+import com.aliendroid.sdkads.config.InitializeAlienAds;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -71,4 +73,9 @@ public class AliendroidInitialize {
     public static void SelectAdsAlienMediation(Activity activity, String selectAdsBackup,String idInitialize, String idInitializeBackupAds) {
 
     }
+
+    public static void SelectAdsWortise(Activity activity, String selectAdsBackup, String idInitialize, String idInitializeBackupAds) {
+
+    }
+
 }
