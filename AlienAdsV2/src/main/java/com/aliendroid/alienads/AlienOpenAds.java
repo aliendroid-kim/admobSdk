@@ -27,6 +27,7 @@ public class AlienOpenAds implements LifecycleObserver, Application.ActivityLife
     public static AppOpenAdManager appOpenAdManager;
     public static Activity currentActivity;
     public static boolean LOADADS;
+    public static String SELECT_ADS = "";
 
     public AlienOpenAds(MyApplication myApplication) {
         AlienOpenAds.myApplication = myApplication;
@@ -52,6 +53,23 @@ public class AlienOpenAds implements LifecycleObserver, Application.ActivityLife
         }
 
     }
+
+    public static void LoadOpenAds(String idOpenAds, boolean loadads, String selectADS) {
+        LOADADS = loadads;
+        SELECT_ADS = selectADS;
+        try {
+            if (LOADADS) {
+                IDOPEN = idOpenAds;
+            } else {
+                IDOPEN = "";
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     /** LifecycleObserver method that shows the app open ad when the app moves to foreground. */
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     protected void onMoveToForeground() {
