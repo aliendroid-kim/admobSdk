@@ -26,16 +26,7 @@ import com.aliendroid.alienads.interfaces.natives.OnLoadSmallNativesAlien;
 import com.aliendroid.alienads.interfaces.natives.OnLoadSmallNativesApplovinMax;
 import com.aliendroid.alienads.interfaces.natives.OnLoadSmallNativesFacebook;
 import com.aliendroid.alienads.interfaces.natives.OnLoadSmallNativesStartApp;
-import com.aliendroid.sdkads.interfaces.OnLoadNative;
-import com.aliendroid.sdkads.type.mediation.AlienMediationAds;
-import com.aliendroid.sdkads.type.view.AlienViewAds;
-import com.bumptech.glide.Glide;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdOptionsView;
-import com.facebook.ads.NativeAdLayout;
-import com.facebook.ads.NativeAdListener;
-import com.facebook.ads.NativeBannerAd;
+
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
