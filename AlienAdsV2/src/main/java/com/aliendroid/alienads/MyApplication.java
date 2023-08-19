@@ -11,6 +11,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 public class MyApplication extends Application {
+    private static AlienNotif notif;
     private static AlienOpenAds alienOpenAds;
     private static InitializeAlienAds sdkads;
     //Uranus
@@ -36,7 +37,7 @@ public class MyApplication extends Application {
 
         sdkads = new InitializeAlienAds(this);
         alienOpenAds = new AlienOpenAds(this);
-
+        notif = new AlienNotif(this);
 
     }
 }
