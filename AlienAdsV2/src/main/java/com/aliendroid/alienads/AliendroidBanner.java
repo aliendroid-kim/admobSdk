@@ -20,6 +20,8 @@ import com.aliendroid.alienads.interfaces.banner.OnLoadBannerFacebook;
 import com.aliendroid.alienads.interfaces.banner.OnLoadBannerGoogle;
 import com.aliendroid.alienads.interfaces.banner.OnLoadBannerIronSource;
 import com.aliendroid.alienads.interfaces.banner.OnLoadBannerStartApp;
+import com.aliendroid.sdkads.type.view.AlienViewAds;
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -27,6 +29,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
 import com.google.android.gms.ads.admanager.AdManagerAdView;
+
+import java.util.UUID;
 
 public class AliendroidBanner {
     public static AdView adViewAdmob;
@@ -39,6 +43,46 @@ public class AliendroidBanner {
     public static OnLoadBannerIronSource onLoadBannerIronSource;
     public static OnLoadBannerAlienView onLoadBannerAlienView;
     public static OnLoadBannerAlienMediation onLoadBannerAlienMediation;
+
+    public static void SmallCollapsibleAdmobTop(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup, String Hpk1,
+                                                String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+        adViewAdmob = new AdView(activity);
+        adViewAdmob.setAdUnitId(idBanner);
+        layAds.addView(adViewAdmob);
+        AdSize adSize = getAdSize(activity);
+        adViewAdmob.setAdSize(adSize);
+        Bundle extras = new Bundle();
+        extras.putString("collapsible", "top");
+        extras.putString("collapsible_request_id", UUID.randomUUID().toString());
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
+                .addKeyword(Hpk1).addKeyword(Hpk2)
+                .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
+                .build();
+        adViewAdmob.loadAd(adRequest);
+
+    }
+
+    public static void SmallCollapsibleAdmobBottom(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup, String Hpk1,
+                                                   String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
+        adViewAdmob = new AdView(activity);
+        adViewAdmob.setAdUnitId(idBanner);
+        layAds.addView(adViewAdmob);
+        AdSize adSize = getAdSize(activity);
+        adViewAdmob.setAdSize(adSize);
+        Bundle extras = new Bundle();
+        extras.putString("collapsible", "bottom");
+        extras.putString("collapsible_request_id", UUID.randomUUID().toString());
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras)
+                .addKeyword(Hpk1).addKeyword(Hpk2)
+                .addKeyword(Hpk3).addKeyword(Hpk4).addKeyword(Hpk5)
+                .build();
+        adViewAdmob.loadAd(adRequest);
+
+    }
 
     public static void SmallBannerAdmob(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup, String Hpk1,
                                         String Hpk2, String Hpk3, String Hpk4, String Hpk5) {
@@ -55,35 +99,35 @@ public class AliendroidBanner {
         adViewAdmob.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-                if (onLoadBannerAdmob!=null){
+                if (onLoadBannerAdmob != null) {
                     onLoadBannerAdmob.onAdLoaded();
                 }
             }
 
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
-                if (onLoadBannerAdmob!=null){
+                if (onLoadBannerAdmob != null) {
                     onLoadBannerAdmob.onAdFailedToLoad("");
                 }
             }
 
             @Override
             public void onAdOpened() {
-                if (onLoadBannerAdmob!=null){
+                if (onLoadBannerAdmob != null) {
                     onLoadBannerAdmob.onAdOpened();
                 }
             }
 
             @Override
             public void onAdClicked() {
-                if (onLoadBannerAdmob!=null){
+                if (onLoadBannerAdmob != null) {
                     onLoadBannerAdmob.onAdClicked();
                 }
             }
 
             @Override
             public void onAdClosed() {
-                if (onLoadBannerAdmob!=null){
+                if (onLoadBannerAdmob != null) {
                     onLoadBannerAdmob.onAdClosed();
                 }
             }
@@ -135,6 +179,7 @@ public class AliendroidBanner {
     public static void SmallBannerAlienMediation(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup) {
 
     }
+
     public static void SmallBannerWortise(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup) {
 
     }
