@@ -1,26 +1,36 @@
 package com.aliendroid.alienads;
 
+import android.content.Context;
+
+import com.onesignal.Continue;
 import com.onesignal.OneSignal;
+import com.onesignal.debug.LogLevel;
+
+//import com.onesignal.OneSignal;
 
 public class AlienNotif {
     private static String ONESIGNAL_APP_ID = "";
     public static MyApplication application;
-
-    public AlienNotif(MyApplication myApplication) {
+    static Context context;
+    public AlienNotif(Context context, MyApplication myApplication) {
         application = myApplication;
+        AlienNotif.context = context;
     }
 
-    public static void LoadOneSignal (String apikey){
+    public static void LoadOneSignal(String apikey) {
         ONESIGNAL_APP_ID = apikey;
-        // Enable verbose OneSignal logging to debug issues if needed.
-        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+        OneSignal.getDebug().setLogLevel(LogLevel.VERBOSE);
+        OneSignal.initWithContext(context, ONESIGNAL_APP_ID);
+        OneSignal.getNotifications().requestPermission(true, Continue.with(r -> {
+            if (r.isSuccess()) {
+                if (r.getData()) {
+                }
+                else {
+                }
+            }
+            else {
 
-        // OneSignal Initialization
-        OneSignal.initWithContext(application);
-        OneSignal.setAppId(ONESIGNAL_APP_ID);
-
-        // promptForPushNotifications will show the native Android notification permission prompt.
-        // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
-        OneSignal.promptForPushNotifications();
+            }
+        }));
     }
 }
