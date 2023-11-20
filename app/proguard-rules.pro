@@ -20,11 +20,28 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keepattributes JavascriptInterface
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+-keep class com.startapp.** {
+      *;
+}
+
+-keep class com.truenet.** {
+      *;
+}
+
+-keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile,
+LineNumberTable, *Annotation*, EnclosingMethod
+-dontwarn android.webkit.JavascriptInterface
+-dontwarn com.startapp.**
+
 -dontwarn org.jetbrains.annotations.**
-
--dontwarn com.facebook.ads.internal.**
--keeppackagenames com.facebook.*
--keep public class com.facebook.ads.** {*;}
--keep public class com.facebook.ads.**
-{ public protected *; }
-
