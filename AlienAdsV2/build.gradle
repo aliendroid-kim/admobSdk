@@ -33,7 +33,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
     implementation "androidx.multidex:multidex:2.0.1"
 
-    implementation 'com.google.android.gms:play-services-ads:22.5.0'
+    implementation 'com.google.android.gms:play-services-ads:22.6.0'
 
     implementation 'com.google.android.ump:user-messaging-platform:2.1.0'
     //implementation 'com.flurry.android:analytics:14.3.0'
