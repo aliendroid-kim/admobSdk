@@ -5,6 +5,7 @@ import android.provider.Settings;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.ump.ConsentDebugSettings;
 import com.google.android.ump.ConsentForm;
 import com.google.android.ump.ConsentInformation;
@@ -12,100 +13,70 @@ import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.FormError;
 import com.google.android.ump.UserMessagingPlatform;
 
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AlienGDPR {
     public static ConsentInformation consentInformation;
     public static ConsentDebugSettings debugSettings;
     public static ConsentRequestParameters params;
+    private static final AtomicBoolean isMobileAdsInitializeCalled = new AtomicBoolean(false);
 
     public static void loadGdpr(Activity activity, String selectAds, boolean childDirected) {
-        switch (selectAds) {
-            case "ADMOB":
-                if (BuildConfig.DEBUG) {
-                    String android_id = Settings.Secure.getString(activity.getContentResolver(), Settings.Secure.ANDROID_ID);
-                    String deviceId = md5(android_id).toUpperCase();
-                    debugSettings = new ConsentDebugSettings.Builder(activity)
-                            .setDebugGeography(ConsentDebugSettings
-                                    .DebugGeography
-                                    .DEBUG_GEOGRAPHY_EEA)
-                            .addTestDeviceHashedId(deviceId)
-                            .build();
-                    params = new ConsentRequestParameters
-                            .Builder()
-                            .setConsentDebugSettings(debugSettings)
-                            .setTagForUnderAgeOfConsent(childDirected)
-                            .build();
-                } else {
-                    params = new ConsentRequestParameters
-                            .Builder()
-                            .setTagForUnderAgeOfConsent(childDirected)
-                            .build();
-                }
-                consentInformation = UserMessagingPlatform.getConsentInformation(activity);
-                consentInformation.requestConsentInfoUpdate(
-                        activity,
-                        params,
-                        new ConsentInformation.OnConsentInfoUpdateSuccessListener() {
-                            @Override
-                            public void onConsentInfoUpdateSuccess() {
-                                if (consentInformation.isConsentFormAvailable()) {
-                                    loadForm(activity);
+        if (BuildConfig.DEBUG) {
+            String android_id = Settings.Secure.getString(activity.getContentResolver(), Settings.Secure.ANDROID_ID);
+            String deviceId = md5(android_id).toUpperCase();
+            debugSettings = new ConsentDebugSettings.Builder(activity)
+                    .setDebugGeography(ConsentDebugSettings
+                            .DebugGeography
+                            .DEBUG_GEOGRAPHY_EEA)
+                    .addTestDeviceHashedId(deviceId)
+                    .build();
+            params = new ConsentRequestParameters
+                    .Builder()
+                    .setConsentDebugSettings(debugSettings)
+                    .setTagForUnderAgeOfConsent(childDirected)
+                    .build();
+        } else {
+            params = new ConsentRequestParameters
+                    .Builder()
+                    .setTagForUnderAgeOfConsent(childDirected)
+                    .build();
+        }
+        consentInformation = UserMessagingPlatform.getConsentInformation(activity);
+        consentInformation.requestConsentInfoUpdate(
+                activity,
+                params,
+                (ConsentInformation.OnConsentInfoUpdateSuccessListener) () -> {
+                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(
+                            activity,
+                            (ConsentForm.OnConsentFormDismissedListener) loadAndShowError -> {
+                                if (loadAndShowError != null) {
+
+                                }
+                                // Consent has been gathered.
+                                if (consentInformation.canRequestAds()) {
+                                    initializeMobileAdsSdk(activity);
                                 }
 
                             }
-                        },
-                        new ConsentInformation.OnConsentInfoUpdateFailureListener() {
-                            @Override
-                            public void onConsentInfoUpdateFailure(FormError formError) {
-                                // Handle the error.
-                            }
-                        });
+                    );
 
-
-                break;
-            case "STARTAPP":
-
-                break;
-            case "IRON":
-                break;
-            case "APPLOVIN-M":
-                /*
-                AppLovinSdk.initializeSdk( activity, new AppLovinSdk.SdkInitializationListener() {
-                    @Override
-                    public void onSdkInitialized(final AppLovinSdkConfiguration configuration)
-                    {
-                        if ( configuration.getConsentDialogState() == AppLovinSdkConfiguration.ConsentDialogState.APPLIES )
-                        {
-                            // Show user consent dialog
-                        }
-                        else if ( configuration.getConsentDialogState() == AppLovinSdkConfiguration.ConsentDialogState.DOES_NOT_APPLY )
-                        {
-                            // No need to show consent dialog, proceed with initialization
-                        }
-                        else
-                        {
-                            // Consent dialog state is unknown. Proceed with initialization, but check if the consent
-                            // dialog should be shown on the next application initialization
-                        }
-                    }
-                } );
-                AppLovinPrivacySettings.setHasUserConsent( true, activity );
-
-                 */
-
-                break;
-            case "APPLOVIN-D":
-
-                //AppLovinPrivacySettings.setHasUserConsent( true, activity );
-                break;
-            case "ALIEN-M":
-
-                break;
-
+                },
+                (ConsentInformation.OnConsentInfoUpdateFailureListener) requestConsentError -> {
+                    // Consent gathering failed.
+                });
+        if (consentInformation.canRequestAds()) {
+            initializeMobileAdsSdk(activity);
         }
+    }
+
+    private static void initializeMobileAdsSdk(Activity activity) {
+        if (isMobileAdsInitializeCalled.getAndSet(true)) {
+            return;
+        }
+        MobileAds.initialize(activity);
     }
 
     public static void loadForm(Activity activity) {
