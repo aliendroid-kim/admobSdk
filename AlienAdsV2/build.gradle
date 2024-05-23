@@ -34,7 +34,7 @@ dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
 
     implementation 'com.google.android.gms:play-services-ads:23.0.0'
-    implementation 'io.appmetrica.analytics:analytics:6.2.1'
+    //implementation 'io.appmetrica.analytics:analytics:6.2.1'
     implementation 'com.google.android.ump:user-messaging-platform:2.2.0'
 
 

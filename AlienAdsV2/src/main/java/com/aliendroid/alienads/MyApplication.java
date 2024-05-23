@@ -12,9 +12,10 @@ import com.aliendroid.sdkads.config.InitializeAlienAds;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
+/*
 import io.appmetrica.analytics.AppMetrica;
 import io.appmetrica.analytics.AppMetricaConfig;
+ */
 
 public class MyApplication extends Application {
     private static AlienNotif notif;
@@ -34,7 +35,7 @@ public class MyApplication extends Application {
                     }
                 });
 
-
+        /*
         AppMetricaConfig config = AppMetricaConfig
                 .newConfigBuilder(ALIENSDKKEY)
                 .withSessionTimeout(15)
@@ -42,6 +43,8 @@ public class MyApplication extends Application {
                 .build();
         AppMetrica.activate(this, config);
         AppMetrica.enableActivityAutoTracking(this);
+
+         */
 
         sdkads = new InitializeAlienAds(this);
         alienOpenAds = new AlienOpenAds(this);
