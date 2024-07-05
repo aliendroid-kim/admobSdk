@@ -138,4 +138,7 @@ public class AliendroidMediumBanner {
     public static void MediumBannerWotrise(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup) {
     }
 
+    public static void MediumBannerAlienView(Activity activity, RelativeLayout layAds, String selectAdsBackup, String idBanner, String idBannerBackup) {
+    }
+
 }
