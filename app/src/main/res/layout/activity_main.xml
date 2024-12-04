@@ -6,62 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/laynative"
+        <ImageView
+            android:id="@+id/imgRewards"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="30dp"
+            app:srcCompat="@drawable/alien2" />
+
+        <Button
+            android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:background="#00a8ff"
+            android:onClick="BANNER"
+            android:text="Banner"
+            android:textColor="@color/white" />
 
-        </FrameLayout>
-
-        <RelativeLayout
-            android:id="@+id/layAds"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginTop="10dp"
+            android:background="#e84118"
+            android:onClick="NATIVES"
+            android:text="Natives"
+            android:textColor="@color/white" />
 
-        </RelativeLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#fbc531"
+            android:onClick="INTERSTITIAL"
+            android:text="Show Interstitial"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:onClick="munculiklan"
-            android:text="Show Intertitial" />
+            android:layout_marginTop="10dp"
+            android:background="#4cd137"
+            android:onClick="REWARD"
+            android:text="Show Reward"
+            android:textColor="@color/white" />
 
         <Button
-            android:layout_width="150dp"
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="munculreward"
-            android:text="Show Reward" />
+            android:layout_marginTop="10dp"
+            android:background="#487eb0"
+            android:onClick="VIEWADS"
+            android:text="Alien View Ads"
+            android:textColor="@color/white" />
 
-        <RelativeLayout
-            android:id="@+id/laysAdsmall"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
-
-        </RelativeLayout>
-
+            android:layout_marginTop="10dp"
+            android:background="#353b48"
+            android:onClick="MEDIATION"
+            android:text="Alien Mediation Ads"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </RelativeLayout>
